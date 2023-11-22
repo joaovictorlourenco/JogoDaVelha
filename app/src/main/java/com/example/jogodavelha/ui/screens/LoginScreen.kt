@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -29,7 +28,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.jogodavelha.ui.screens.components.Button
 import com.example.jogodavelha.ui.theme.Background
 import com.example.jogodavelha.ui.theme.Primary
@@ -76,8 +74,10 @@ fun LoginScreen( navController : NavController) {
 
                     OutlinedTextField(
                         value = username,
-                        onValueChange = { username = it },
+                        singleLine = true,
+                        onValueChange = { if(it.length <= 10) username = it },
                         label = { Text(text = "Nome", color = Color.LightGray) },
+
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(8.dp),
@@ -93,9 +93,16 @@ fun LoginScreen( navController : NavController) {
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Button(onClick = {
+                    //verificar se o campo está vazio
+                    if(username.isEmpty()) return@Button
+
                     val route = "dashboard/$username"
                     navController.navigate(route)
-                }, text = "Login")
+
+                }, text = "Login",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(50.dp))
 
             }
         }

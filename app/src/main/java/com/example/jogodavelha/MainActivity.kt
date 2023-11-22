@@ -19,6 +19,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
 
+
+
             JogoDaVelhaTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize()) {
@@ -28,7 +30,7 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("dashboard/{username}") { backStackEntry ->
                             val username = backStackEntry.arguments?.getString("username")
-                            DashboardScreen(username)
+                            DashboardScreen(username, navController)
                         }
                     })
                 }
