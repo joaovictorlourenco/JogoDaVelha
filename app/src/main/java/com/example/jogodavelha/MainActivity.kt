@@ -1,5 +1,6 @@
 package com.example.jogodavelha
 
+import TelaDeJogo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,7 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.jogodavelha.ui.screens.DashboardScreen
 import com.example.jogodavelha.ui.screens.LoginScreen
-import com.example.jogodavelha.ui.screens.TelaDeJogo
+import com.example.jogodavelha.ui.screens.TelaDeJogoIa
 import com.example.jogodavelha.ui.theme.JogoDaVelhaTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,6 +34,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("telaDeJogo") {
                             TelaDeJogo(navController)
+                        }
+                        composable("TelaDeJogoIa") {
+                            TelaDeJogoIa(navController)
                         }
                     })
                 }

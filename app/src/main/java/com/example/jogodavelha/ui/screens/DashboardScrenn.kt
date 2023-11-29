@@ -38,7 +38,7 @@ fun DashboardScreen(username: String?, navController: NavController) {
                                 .height(50.dp)
                         )
                         Button(
-                            onClick = { /*TODO*/ }, text = "vs IA", modifier = Modifier
+                            onClick = { navController.navigate("TelaDeJogoIa") }, text = "vs IA", modifier = Modifier
                                 .width(150.dp)
                                 .height(50.dp)
                         )
