@@ -4,6 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 val Primary = Color(4279549356)
 val Background = Color(4280624421)
+val TopBarColor = Color(0xFF464646)
 val White = Color(0xFFFFFFFF)
 
 

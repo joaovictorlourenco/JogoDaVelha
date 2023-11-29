@@ -11,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.jogodavelha.ui.screens.DashboardScreen
 import com.example.jogodavelha.ui.screens.LoginScreen
+import com.example.jogodavelha.ui.screens.TelaDeJogo
 import com.example.jogodavelha.ui.theme.JogoDaVelhaTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,8 +19,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-
-
 
             JogoDaVelhaTheme {
                 // A surface container using the 'background' color from the theme
@@ -31,6 +30,9 @@ class MainActivity : ComponentActivity() {
                         composable("dashboard/{username}") { backStackEntry ->
                             val username = backStackEntry.arguments?.getString("username")
                             DashboardScreen(username, navController)
+                        }
+                        composable("telaDeJogo") {
+                            TelaDeJogo(navController)
                         }
                     })
                 }
